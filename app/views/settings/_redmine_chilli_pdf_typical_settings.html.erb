@@ -1,0 +1,73 @@
+<p class="redmine-chilli-pdf-instructions">
+  <span class="tip-label"><%= l(:tip_label) %>:</span>
+  <%= l(:tip_view_as_html) %>
+</p>
+
+<p>
+  <label for='settings_<%= RedmineChilliPDF::Config::HEADER_ENABLED_KEYNAME %>'><%= l(:label_header_enabled) %></label>
+  <%= check_box_tag "settings[#{RedmineChilliPDF::Config::HEADER_ENABLED_KEYNAME}]", RedmineChilliPDF::Config::ENABLED_VALUE, RedmineChilliPDF::Config.header_enabled? %>
+</p>
+
+<p>
+  <label for='settings_<%= RedmineChilliPDF::Config::FOOTER_ENABLED_KEYNAME %>'><%= l(:label_footer_enabled) %></label>
+  <%= check_box_tag "settings[#{RedmineChilliPDF::Config::FOOTER_ENABLED_KEYNAME}]", RedmineChilliPDF::Config::ENABLED_VALUE, RedmineChilliPDF::Config.footer_enabled? %>
+</p>
+
+<h3><%= l(:section_heading_custom_header_footer_content) %></h3>
+
+<table id="header-footer-settings">
+  <thead>
+    <tr>
+      <td></td>
+      <td><%= l(:table_header_footer_labels_left) %></td>
+      <td><%= l(:table_header_footer_labels_center) %></td>
+      <td><%= l(:table_header_footer_labels_right) %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= l(:table_header_footer_labels_header) %></td>
+      <td>
+        <%= text_field_tag "settings[#{RedmineChilliPDF::Config::HEADER_LEFT_KEYNAME}]", RedmineChilliPDF::Config.header_values[:left] %>
+      </td>
+      <td>
+        <%= text_field_tag "settings[#{RedmineChilliPDF::Config::HEADER_CENTER_KEYNAME}]", RedmineChilliPDF::Config.header_values[:center] %>
+      </td>
+      <td>
+        <%= text_field_tag "settings[#{RedmineChilliPDF::Config::HEADER_RIGHT_KEYNAME}]", RedmineChilliPDF::Config.header_values[:right] %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= l(:table_header_footer_labels_footer) %></td>
+      <td>
+        <%= text_field_tag "settings[#{RedmineChilliPDF::Config::FOOTER_LEFT_KEYNAME}]", RedmineChilliPDF::Config.footer_values[:left] %>
+      </td>
+      <td>
+        <%= text_field_tag "settings[#{RedmineChilliPDF::Config::FOOTER_CENTER_KEYNAME}]", RedmineChilliPDF::Config.footer_values[:center] %>
+      </td>
+      <td>
+        <%= text_field_tag "settings[#{RedmineChilliPDF::Config::FOOTER_RIGHT_KEYNAME}]", RedmineChilliPDF::Config.footer_values[:right] %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div id="pdf-token-help">
+  <h4><%= l(:section_heading_dynamic_text_legend) %></h4>
+  <table>
+    <thead>
+      <tr>
+        <td><%= l(:table_dyanmic_header_enter_this) %></td>
+        <td>...<%= l(:table_dyanmic_header_to_show_this) %></td>
+      </tr>
+    </thead>
+    <tbody>
+      <%- RedmineChilliPDF::TokenManager.tokens.each do |token| %>
+        <tr>
+          <td class="token"><%= token.matcher_with_delimiters %></td>
+          <td class="description"><%= token.description %></td>
+        </tr>
+      <%- end %>
+    </tbody>
+  </table>
+</div>

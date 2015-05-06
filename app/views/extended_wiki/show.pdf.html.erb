@@ -1,0 +1,11 @@
+<% content_for :header_tags do %>
+  <%= redmine_chilli_pdf_stylesheets(@requesting_html_version) %>
+  <%= redmine_chilli_pdf_javascripts(@requesting_html_version) %>
+  <%= normalize_custom_link_href_tags_in(RedmineChilliPDF::Config.custom_css, @requesting_html_version) %>
+  <%= normalize_custom_js_src_tags_in(RedmineChilliPDF::Config.custom_js, @requesting_html_version) %>
+<% end %>
+
+<%= logo_img_tag(@requesting_html_version) %>
+
+<%- html_content = textilizable(@content.text, :attachments => @content.page.attachments) %>
+<%= update_link_and_image_urls(html_content, @requesting_html_version) %>
