@@ -10,7 +10,7 @@ group :development do
   gem 'hoe-git'
   gem 'ZenTest'
   gem 'redmine_plugin_support'
-  # gem 'cucumber', '0.10'
+  gem 'cucumber'
   gem 'rspec', '1.3.1'
   gem 'rspec-rails', '1.3.2'
   gem 'i18n', '~>0.6.11'

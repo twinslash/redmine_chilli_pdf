@@ -22,7 +22,6 @@ begin
   $hoe = Hoe.spec('redmine_chilli_pdf') do
     self.readme_file      = 'README.md'
     self.version          = RedmineChilliPDF::VERSION
-    self.extra_rdoc_files = FileList['README.md', 'LICENSE', 'History.txt']
 
     self.summary = "RedmineChilliProject (/Redmine) plugin which implements/enhances PDF-export functionality using the Webkit rendering engine."
     self.extra_deps       = [['wicked_pdf', '~> 0.7'], ['nokogiri', '~> 1.4']]
