@@ -19,8 +19,10 @@ Restart your server.
 ## Uninstall
 
 Remove the plugin.
+
 ```bash
 cd REDMINE/plugins
 rm -rf redmine_chilli_pdf
 ```
+
 Restart your server.
