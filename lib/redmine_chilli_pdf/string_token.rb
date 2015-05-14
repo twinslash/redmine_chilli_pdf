@@ -63,7 +63,7 @@ module RedmineChilliPDF
       end
 
       def replacement_value
-        replacement_object.is_a?(Proc) ? replacement_object.call(self) : replacement_object
+        replacement_object.is_a?(Proc) ? replacement_object.call : replacement_object
       end
 
       def escaped(string)

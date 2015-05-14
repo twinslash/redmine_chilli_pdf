@@ -18,7 +18,10 @@ end
 Rails.configuration.to_prepare do
   require_dependency 'principal'
   require_dependency 'user'
-  User.send(:include, UserPatch) unless User.included_modules.include? UserPatch
+  require_dependency 'lib/redmine/export/pdf'
 
-  require_dependency 'wiki_format_hook_listener'
+  User.send(:include, UserPatch) unless User.included_modules.include? UserPatch
+  WikiController.send(:include, RedmineChilliPdf::WikiControllerPatch)
+  Redmine::Export::PDF.send(:include, PdfPatch)
+  # require_dependency 'wiki_format_hook_listener'
 end

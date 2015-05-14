@@ -5,7 +5,7 @@ module RedmineChilliPDF
     DEFAULT_PAGE_SIZE = "Letter"
     DEFAULT_PAGE_TITLE = "Untitled"
     DEFAULT_LAYOUT = 'pdf.pdf.erb'
-    DEFAULT_VIEW_TEMPLATE  = 'extended_wiki/show.pdf.html.erb'
+    DEFAULT_VIEW_TEMPLATE  = 'wiki/show.pdf.html.erb'
 
     attr_reader :page_title
 
